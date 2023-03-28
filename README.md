@@ -191,3 +191,24 @@ tree -P *.mp3 (Para mostrar a pasta onde está o arquivo)
 
 ### Instalar Tree
 sudo apt instal tree
+
+## Aula 5: 27-03-2023
+
+### Instalar Apache
+sudo apt update
+sudo apt install apache2
+
+### Instalar Zip
+sudo apt install zip
+
+### Backup de site
+sudo zip -r nomedobackup.zip site/
+
+### Firewall ufw
+sudo ufw enable (Habilitar o Firewall)
+sudo ufw app list
+sudo ufw status numbered
+sudo ufw status verbose
+sudo ufw reload
+sudo ufw allow 8085/tcp (liberar portas)
+sudo ufw dany 8085/tcp (bloquear portas)
