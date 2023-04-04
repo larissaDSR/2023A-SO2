@@ -176,8 +176,10 @@ ll
 ps -ef |grep univates(usuario ou processo) (para vizualizar ps processos de determinado usuário)
 ps -ef |grep univates(usuario ou processo) |wc -l (para contar o número de processos, não é tão preciso)
 ou
-ps -aux |grep bash(usuario ou processo)
+ps -aux |grep bash(usuario,processo,serviço)
 htop (vizualizar processos mais precisamente)
+ps(estático)
+top(dinâmico)
 
 ### Ver o tamanho da pasta
 sudo du -sh /var(pasta)
@@ -198,6 +200,10 @@ sudo apt instal tree
 sudo apt update
 sudo apt install apache2
 
+### Redirecionamento de portas
+Nas configurações de rede da maquina virtual:
+adicionar regra http: IP hospedeiro(127.0.1.1), Porta de hospedeiro e convidado(8085), IP convidado(10.0.2.15)
+
 ### Instalar Zip
 sudo apt install zip
 
@@ -211,4 +217,17 @@ sudo ufw status numbered
 sudo ufw status verbose
 sudo ufw reload
 sudo ufw allow 8085/tcp (liberar portas)
-sudo ufw dany 8085/tcp (bloquear portas)
+sudo ufw dany 9000/tcp (bloquear portas)
+sudo ufw dany 3306/tcp (bloquear portas)
+sudo ufw allow 5432/tcp (liberar portas)
+
+## Aula 6: 03-04-2023
+
+### Ativar serviços
+Ubuntu: service ssh start
+systemctl status(start) ssh
+
+### Verificar versão
+ufw --version
+app -v
+
