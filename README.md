@@ -231,3 +231,31 @@ systemctl status(start) ssh
 ufw --version
 app -v
 
+## Aula 8: 17-04-2023
+
+### Docker
+sudo apt-get remove docker
+apt install curl
+mkdir docker
+cd docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+sudo usermod -aG docker univates
+systemctl enable docker
+systemctl start docker (Subir o serviço)
+systemctl stop docker (desativar o serviço)
+docker run alpine
+docker pull alpine:3.16 (O pull apenas baixa)
+docker run alpine:3.16 (O run roda, mas caso não ter o alpine ele baixa e logo após roda)
+docker images (para ver as imagens instaladas)
+docker ps -a (mostra todos os processos com todos os status, sem o -a ele mostra apenas os ativos)
+docker search go (para pesquisar imagens para o docker, por exemplo o 'go')
+docker pull mariadb:10.5
+docker pull ubuntu:22.04
+docker run -it ubuntu /bin/bash (entrando num container)
+docker run -it --rm -p 8081:80 nginx /bin/bash (entrar no container e após sair ele é deletado automaticamente)
+exit (para sair do container)
+docker container ps -a (para ver os conteiners)
+docker container rm -f $(docker ps -aq) (mata todos os containers que não estão sendo utilizados)
+docker run -it -p 8080:80 --name web nginx /usr/sbin/nginx -g
+docker container run -it -v /home/univates/docker:/home --name server2 ubuntu /bin/bash (iniciar container, mapear as pastas do servidor, nomeando o container de server2, rodando o bash do ubuntu)
