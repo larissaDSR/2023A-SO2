@@ -231,6 +231,9 @@ systemctl status(start) ssh
 ufw --version
 app -v
 
+## Aula 7: 10-04-2023
+Avaliação 01
+
 ## Aula 8: 17-04-2023
 
 ### Docker
@@ -256,6 +259,13 @@ docker run -it ubuntu /bin/bash (entrando num container)
 docker run -it --rm -p 8081:80 nginx /bin/bash (entrar no container e após sair ele é deletado automaticamente)
 exit (para sair do container)
 docker container ps -a (para ver os conteiners)
-docker container rm -f $(docker ps -aq) (mata todos os containers que não estão sendo utilizados)
+"docker container rm -f $(docker ps -aq)" (mata todos os containers que não estão sendo utilizados, o -f serve para forçar comando e matar os que estão rodando também)
+docker rm codigoContainer
 docker run -it -p 8080:80 --name web nginx /usr/sbin/nginx -g
 docker container run -it -v /home/univates/docker:/home --name server2 ubuntu /bin/bash (iniciar container, mapear as pastas do servidor, nomeando o container de server2, rodando o bash do ubuntu)
+docker run -it -v /var/www/html/:/usr/share/nginx/html -p 8081:80 nginx (acessando o container mapeando as pastas do servidor local para dentro do docker e lançando o site no ar)
+docker run -it --rm -v /home/univates/docker:/home --name meu_python python bash
+
+## Aula 9: 24-04-2023
+
+Revisão da aula anterior.
