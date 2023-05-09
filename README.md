@@ -134,6 +134,9 @@ R - 4
 w - 2
 X - 1
 
+permissão padrão 644
+sudo chmod 777 teste.txt (mudar permissão de um arquivo)
+
 Pastas: d
 arquivos: -
 Programas: - (pode existir link: l)
@@ -269,3 +272,43 @@ docker run -it --rm -v /home/univates/docker:/home --name meu_python python bash
 ## Aula 9: 24-04-2023
 
 Revisão da aula anterior.
+
+## Aula 10: 08-05-2023
+
+### Find
+echo $(sudo find /etc -iname '*passwd*') -> (para criar script do comando)
+sudo find /etc -name password ->(para buscar uma arquivo especifico com a palavra digitada na pasta indicada)
+sudo find /etc -iname '*passwd*'->(para buscar arquivo com esse texto, o i serve para ignorar caixa alta ou baixa)
+sudo find /usr/share/ -size +10M ->(para buscar na pasta arquivos que tem +de n Megas)
+sudo find /var/log -size -10M|wc -l ->(para contar quantos arquivos nesta pasta tem -de n Megas)
+sudo find /usr/share/ -size -10M ->(|| -de n Megas)
+sudo find /var/log -size +500M -size -5G ->(arquivos de 500M até 5G)
+sudo find /var/log -size +500M -size -5G -exec du -sh {} \; ->(executa outro comando após e devolve o tamanho de cada arquivo)
+sudo find /home -user univates -ls ->(para localizar arquivos de determinado usuario em determinada pasta)
+sudo find /home -user univates -or -user aluno -ls ->(procurar por um ou outro, só mostra um deles, sempre pega o ultimo)
+sudo find /var/spool -not -user root -ls  ->(nesta pasta, listar todos os arquivos que não pertence a determinado usuario)
+sudo find /bin -perm 755 -ls ->(listar na pasta, todos os arquivos que a permissão é 755, permissão correta para um site)
+sudo find /bin -perm 750 -ls ->(com essa permissão o site não funciona, assim como se for acima de 755, 777=rico de invasão)
+sudo find /home/univates -perm 750 -type d -ls ->(listar na pasta, item do tipo diretorio com a permissão digitada)
+sudo find . -perm +222 -type f ->(procurar na pasta que está, permissão maior que 222, do typo f(file))
+sudo find /var/www -mmin -10 ->(localizar na pasta por arquivos criados/modificados há no minimo 10 minutos)
+sudo find /bin /usr/bin -ctime -3 ->(localizar em duas pastas arquivos C=criados nos ultimos 3 dias, não há limites de pastas)
+sudo find /home -atime +300 ->(localizar arquivos que existem há +de 300 dias, o a indica que mostra toda situação de arquivos, criados ou modificados)
+sudo find /home -atime +30|wc -l ->(mostra a quantidade)
+sudo find /etc -iname nginx -exec echo "I found {}" \; 
+sudo find /usr/share -size +3M -exec du{}\;|sort -nr (mostra os tamanhos dos arquivos ordenando por tamanho, r=invertido)
+sudo find /home/univates -user joao -ok mv {} /tmp/joao/ \; -> (localiza e se localizar:ok move para determinada pasta, caso não não faz nada)
+sudo find /usr > /tmp/lista-arq.txt & -> para rodar em segundo plano
+
+### Processo
+ps ux -> tudo que esta executando para os usuarios
+ps x -> todos os processos
+ps ux|grep ssh -> para localizar pelo nome processos de usuarios
+ps aux -> todos os processos parados ou não de todos os usuarios
+ps ef -> processos com informações tecnicas
+ps ef > /tmp/2023-04-08.txt -> + coloca as informações em um novo arquivo para vizualizar-lo completo
+ps -e |sort -nr -> processos em execução de forma mais compactados
+ps -x |sort -nr -> processos em execução 
+ps |grep 47189 -> mostra status do processo usando o codigo dele, dizendo se está pronto
+jobs -> lista de coisas que estão em processo em segundo plano
+fg %1 -> 
