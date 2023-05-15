@@ -302,7 +302,7 @@ sudo find /home/univates -user joao -ok mv {} /tmp/joao/ \; -> (localiza e se lo
 sudo find /usr > /tmp/lista-arq.txt & -> para rodar em segundo plano  
 
 ### Processo
-*ps ux -> tudo que esta executando para os usuarios  
+* ps ux -> tudo que esta executando para os usuarios  
 ps x -> todos os processos  
 ps ux|grep ssh -> para localizar pelo nome processos de usuarios  
 ps aux -> todos os processos parados ou não de todos os usuarios  
