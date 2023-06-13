@@ -333,3 +333,8 @@ bash do ubuntu)
 * ip addr show -> para ver a configuração de rede  
 * dig univates.br -> diagnostico de rede, ver configuração de rede de um site, por exemplo  
 * traceroute google.com -> Tempo de resposta da minha maquina até determinado servidor, quanto maior o tempo mais longe está de nós  
+
+## Aula 15: 12-06-2023
+
+* do-release-update -> para atualizar o ubuntu para uma nova versão.
+* 
