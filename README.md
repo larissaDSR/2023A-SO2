@@ -337,4 +337,4 @@ bash do ubuntu)
 ## Aula 15: 12-06-2023
 
 * do-release-update -> para atualizar o ubuntu para uma nova versão.
-* 
+* sudo username -aG Docker Suporte
